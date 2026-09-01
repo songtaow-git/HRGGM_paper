@@ -13,6 +13,17 @@ The analysis code is stored directly in this GitHub repository. The data and arc
 
 Download [`Data_HRGGM_paper.zip` from the Zenodo draft record][zenodo-data]. The current link provides preview access before the Zenodo record is formally published.
 
+The repository also contains a `Supplementary_tables/` directory. These files
+are provided directly through GitHub and are not included in
+`Data_HRGGM_paper.zip`:
+
+- `S1_whole_gene_list`: complete gene list used in the astrocyte analysis;
+- `S2_Network_overview`: summary of the estimated HR-GGM network;
+- `S3_Precision_matrix`: archived estimated precision matrix;
+- `S4_Enrichr_result`: Enrichr functional-enrichment results;
+- `S5_Ca_associated_reference_label`: reference labels for Ca²⁺-associated genes;
+- `S6_Ca2_literature_evidence`: literature evidence for Ca²⁺-associated genes.
+
 ## 1. Required directory assembly
 
 The GitHub repository and the extracted data archive contain the same five top-level analysis directories:
@@ -23,7 +34,8 @@ HRGGM_paper/
 ├── Paper_simulation_data_method_comparison/
 ├── Supplementary_simulation_analysis_S1/
 ├── Supplementary_simulation_analysis_S2/
-└── Supplementary_simulation_analysis_S3/
+├── Supplementary_simulation_analysis_S3/
+└── Supplementary_tables/                  # GitHub only
 
 Data_HRGGM_paper/
 ├── Paper_astrocyte_data_method_comparison/
@@ -34,6 +46,10 @@ Data_HRGGM_paper/
 ```
 
 Copy the **contents** of each directory under `Data_HRGGM_paper` into the identically named directory under `HRGGM_paper`. Preserve every internal directory name and relative path.
+
+`Supplementary_tables/` already belongs to the GitHub repository and has no
+matching directory in the Zenodo archive. Leave it unchanged when merging the
+five analysis directories.
 
 The final working copy must have one combined tree rooted at `HRGGM_paper`. Do not place the entire data archive as an additional nested directory, and do not flatten individual data files into the repository root.
 
