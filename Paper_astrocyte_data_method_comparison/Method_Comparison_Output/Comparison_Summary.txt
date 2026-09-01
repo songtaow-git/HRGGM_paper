@@ -1,0 +1,68 @@
+HR-GGM, LV-GGM, and prior-correlation comparison
+=================================================
+
+Evaluation genes: 2958
+Prior genes excluded from evaluation: 42
+Mark-T: 498
+Mark-F: 2460
+Baseline Mark-T prevalence: 0.168356997972
+
+Primary score definitions
+-------------------------
+HR-GGM: absolute gene-hidden Ca precision weight.
+LV-GGM: one canonical eigencomponent selected exactly as in the simulation analysis by the largest mean standardized loading among the 42 prior genes; gene score = sqrt(lambda_k)*abs(u_k). No Mark-T/F label is used for selection.
+Prior correlation: mean absolute Pearson correlation with the 42 prior genes across samples.
+
+Main method metrics
+-------------------
+HR-GGM
+  AP: 0.250179579294
+  Normalized AP: 1.486006416769
+  AUROC: 0.589190093708
+  Top-721 positive rate: 0.255201109570
+  Top-721 enrichment: 1.515833096603
+  Top-721 OR: 2.098423655837 [1.708479633815, 2.577368645329]
+  Fisher right-tail p: 3.401739273767e-12
+  AP label-permutation p: 1.999600079984e-04
+  Top-721 enrichment permutation p: 1.999600079984e-04
+
+LV-GGM
+  AP: 0.184891996321
+  Normalized AP: 1.098213905857
+  AUROC: 0.532530120482
+  Top-721 positive rate: 0.201109570042
+  Top-721 enrichment: 1.194542385910
+  Top-721 OR: 1.343543437205 [1.083976533642, 1.665265724518]
+  Fisher right-tail p: 4.520566670135e-03
+  AP label-permutation p: 2.559488102380e-02
+  Top-721 enrichment permutation p: 3.999200159968e-03
+
+Prior correlation
+  AP: 0.201356352173
+  Normalized AP: 1.196008212303
+  AUROC: 0.577802265974
+  Top-721 positive rate: 0.214979195562
+  Top-721 enrichment: 1.276924619421
+  Top-721 OR: 1.512171754113 [1.223709152785, 1.868633088780]
+  Fisher right-tail p: 1.015436479932e-04
+  AP label-permutation p: 5.998800239952e-04
+  Top-721 enrichment permutation p: 1.999600079984e-04
+
+Low-rank diagnostics
+--------------------
+LV-GGM
+  Input size: 3000 x 3000
+  Sign flipped before PSD extraction: 0
+  Numerical PSD rank: 3000
+  Rank explaining 90% / 95% / 99% energy: 239 / 324 / 441
+  Prior-selected canonical component: 8
+  Prior enrichment of selected component: 1.181995712338
+  Significant seed-enriched directions: 1
+  Seed-direction null threshold: 0.013052639715
+
+Interpretation guardrails
+-------------------------
+1. Rank greater than one is not itself a failure; it indicates multiple latent directions.
+2. The primary LV-GGM score uses one prior-selected canonical eigencomponent selected from the prior-gene loadings.
+3. The independent Mark-T/F labels are used only for final evaluation, permutation tests, bootstrap comparisons, and the explicitly labeled oracle diagnostic.
+4. Oracle rows in Latent_Score_Sensitivity_Metrics.csv are descriptive upper bounds and must not be reported as inferential results.
